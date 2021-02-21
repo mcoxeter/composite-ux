@@ -4,7 +4,6 @@ export interface BoxProps {
     width?: string;
     height?: string;
     colorToken: ColorTokenNames;
-
 }
 
 export const Box: React.FC<BoxProps> = () => {

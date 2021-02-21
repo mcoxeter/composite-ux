@@ -1,0 +1,11 @@
+.component {
+  tr td:last-of-type {
+    text-align: center;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 5px;
+  }
+}

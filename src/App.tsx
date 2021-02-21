@@ -1,15 +1,10 @@
 import React from 'react';
 import './App.css';
-import { PrimaryButton } from './components/primary-button/PrimaryButton';
+import { Docs } from './docs/Docs';
 
 function App() {
   return (
-    <div>
-    <PrimaryButton/>
-    <PrimaryButton/>
-    <PrimaryButton/>
-    Hi!
-    </div>
+    <Docs/>
   );
 }
 
