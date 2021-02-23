@@ -1,19 +1,47 @@
 import * as React from 'react';
 import styles from './Box.module.scss';
 export interface BoxProps {
-    width?: string;
-    height?: string;
-    colorToken: ColorTokenNames;
+    borderRadius?: string;
+    background?: ColorToken;
+    backgroundOpacity?: number;
+
+
+    alignItems?: 'center' | 'flex-end' | 'flex-start' | 'stretch';
+    justifyContent?: 'center' | 'flex-end' | 'flex-start';
+
+    flexDirection: 'column' | 'row'
 }
 
-export const Box: React.FC<BoxProps> = () => {
-    return (<div className={styles['component']} style={{width: "100px", height: "100px", backgroundColor: "red" }}>Hello</div>);
+export const Box: React.FC<BoxProps> = (props) => {
+    const {
+        alignItems = 'center',
+        justifyContent = 'center',
+        background = 'primary',
+        flexDirection = 'row',
+        backgroundOpacity = 1
+    } = props;
+
+    const className = [
+        styles['component'],
+        styles[background]
+    ].join(' ');
+
+    return (
+        <div className={className} 
+            style={{
+                opacity: backgroundOpacity,
+                flexDirection,
+                alignItems,
+                justifyContent,
+                borderRadius: props.borderRadius ?? 'auto',
+                }}>
+                    {props.children}
+        </div>
+    );
 }
 
-export type ColorTokenNames = 
-    'page-base' |
-    'action-primary-default' |
-    'action-disabled' |
-    'action-primary-active' |
-    'action-primary-hover' |
-    'action-primary-focused'
+export type ColorToken = 
+    'canvas' |
+    'primary' |
+    'disabled';
+

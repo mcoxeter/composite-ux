@@ -1,5 +1,5 @@
 React component example:
 
 ```js
-<Box colorToken='action-primary-active' />
+<Box background='disabled'>A Box</Box>
 ```
